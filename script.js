@@ -1,19 +1,17 @@
-function addTask(){
+function addTask() {
+  let input = document.getElementById("taskInput");
+  let task = input.value.trim();
 
-    let input = document.getElementById("taskInput");
+  if (task === "") {
+    alert("Please enter a task");
+    return;
+  }
 
-    let task = input.value.trim();
+  let li = document.createElement("li");
+  li.innerText = task;
+  document.getElementById("taskList").appendChild(li);
 
-    if(task===""){
-        alert("Please enter a task");
-        return;
-    }
-
-    let li=document.createElement("li");
-
-    li.innerText=task;
-
-    document.getElementById("taskList").appendChild(li);
-
-    input.value="";
+  input.value = "";
 }
+
+document.getElementById("addBtn").addEventListener("click", addTask);
